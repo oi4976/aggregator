@@ -39,47 +39,10 @@ jobs:
 
           if echo "$gist_response" | grep -q '"id"'; then
             echo "✅ Gist存在且可访问"
-            echo "📋 Gist描述: $(echo "$gist_response" | grep -o '"description":"[^"]*"' | sed
-  's/"description":"\(.*\)"/\1/')"
+            echo "📋 Gist描述: $(echo "$gist_response" | grep -o '"description":"[^"]*"' | sed 's/"description":"\(.*\)"/\1/')"
             echo "📁 Gist文件:"
             echo "$gist_response" | grep -o '"filename":"[^"]*"' | sed 's/"filename":"\(.*\)"/  - \1/'
           else
             echo "⚠️  Gist不存在或无权访问"
-            echo "📝 正在创建新的测试Gist..."
-
-            # 创建新的Gist
-            new_gist=$(curl -s \
-              -X POST \
-              -H "Authorization: Bearer ${{ secrets.PUSH_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              -d '{
-                "description": "测试Gist - 代理聚合器配置",
-                "public": false,
-                "files": {
-                  "test.txt": {
-                    "content": "这是一个测试文件，用于验证GitHub Token权限\n创建时间: '"$(date -u)"'"
-                  },
-                  "config.json": {
-                    "content": "{
-    \"test\": true,
-    \"created_at\": \"'"$(date -u +%Y-%m-%dT%H:%M:%SZ)"'\",
-    \"message\": \"代理聚合器测试配置\"
-  }"
-                  }
-                }
-              }' \
-              "https://api.github.com/gists")
-
-            if echo "$new_gist" | grep -q '"id"'; then
-              new_gist_id=$(echo "$new_gist" | grep -o '"id":"[^"]*"' | sed 's/"id":"\(.*\)"/\1/')
-              echo "✅ 新Gist创建成功!"
-              echo "🔗 Gist ID: $new_gist_id"
-              echo "📝 请更新你的仓库secrets中的GIST_ID为: $new_gist_id"
-              echo "🔗 Gist URL: https://gist.github.com/$username/$new_gist_id"
-            else
-              echo "❌ Gist创建失败"
-              echo "错误信息: $new_gist"
-              exit 1
             fi
           fi
