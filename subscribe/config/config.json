@@ -18,7 +18,7 @@
             "rename": "🆓{name}",
             "include": "免费|试用|节点",
             "exclude": "付费|VIP|过期|套餐",
-            "push_to": ["free"],
+            "push_to": ["MyProxies"],
             "ignorede": false,
             "rate": 1.0,
             "count": 50,
@@ -37,7 +37,7 @@
             "rename": "⚡{name}",
             "include": "专线|高速|游戏",
             "exclude": "免费|测试",
-            "push_to": ["free"],
+            "push_to": ["MyProxies"],
             "ignorede": false,
             "rate": 1.0,
             "count": 30,
@@ -53,7 +53,7 @@
             ],
             "domain": "test-proxies",
             "rename": "🧪{name}",
-            "push_to": ["test"],
+            "push_to": ["MyProxies"],
             "count": 10
         }
     ],
@@ -80,88 +80,53 @@
                     "config": {
                         "rename": "📢TG-{name}"
                     },
-                    "push_to": ["free"]
+                    "push_to": ["MyProxies"]
                 }
             }
         },
         "github": {
             "enable": false,
             "pages": 3,
-            "push_to": ["free"],
+            "push_to": ["MyProxies"],
             "exclude": "过期|失效|广告",
             "spams": ["test-repo", "ad-repo", "spam-repo"]
         }
     },
     "groups": {
-        "free": {
+        "MyProxies": {
             "emoji": true,
-            "list": false,
+            "list": true,
             "targets": {
-                "clash": "free:clash",
-                "v2ray": "free:v2ray",
-                "singbox": "free:singbox",
-                "ss": "free:ss",
-                "mixed": "free:mixed"
+                "clash": "MyClashProfile",
+                "singbox": "xxx-singbox",
+                "v2ray": "xxx-v2ray"
             },
             "regularize": {
                 "enable": true,
                 "locate": true,
-                "residential": true,
                 "bits": 2
-            }
-        },
-        "test": {
-            "emoji": false,
-            "list": true,
-            "targets": {
-                "clash": "test:clash",
-                "v2ray": "test:v2ray"
-            },
-            "regularize": {
-                "enable": false
             }
         }
     },
     "storage": {
         "engine": "gist",
-        "base": "oi4976/ba2057fb64e8d1ac97f687910810d551",
-        "domain": "gist.github.com",
-        "token": "${PUSH_TOKEN}",
+        "base": "https://api.github.com",
+        "domain": "https://gist.github.com",
         "items": {
-            "free:clash": {
+            "MyClashProfile": {
                 "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-clash.yaml"
+                "filename": "clash.yaml"
             },
-            "free:v2ray": {
+            "xxx-singbox": {
                 "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-v2ray.txt"
+                "filename": "singbox.json"
             },
-            "free:singbox": {
+            "xxx-v2ray": {
                 "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-singbox.json"
-            },
-            "free:ss": {
-                "username": "oi4976",
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-ss.txt"
-            },
-            "free:mixed": {
-                "username": "oi4976",
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-mixed.txt"
-            },
-            "test:clash": {
-                "username": "oi4976",
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "test-clash.yaml"
-            },
-            "test:v2ray": {
-                "username": "oi4976",
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "test-v2ray.txt"
+                "filename": "v2ray.txt"
             },
             "crawled:subs": {
                 "username": "oi4976",
@@ -171,7 +136,7 @@
             "crawled:proxies": {
                 "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "crawled-proxies.txt"
+                "filename": "crawled-proxies.yaml"
             }
         }
     }
