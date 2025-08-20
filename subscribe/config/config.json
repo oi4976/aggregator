@@ -129,40 +129,40 @@
         "token": "${PUSH_TOKEN}",
         "items": {
             "free:clash": {
-                "folderid": "",
-                "fileid": "free-clash.yaml"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-clash.yaml"
             },
             "free:v2ray": {
-                "folderid": "",
-                "fileid": "free-v2ray.txt"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-v2ray.txt"
             },
             "free:singbox": {
-                "folderid": "",
-                "fileid": "free-singbox.json"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-singbox.json"
             },
             "free:ss": {
-                "folderid": "",
-                "fileid": "free-ss.txt"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-ss.txt"
             },
             "free:mixed": {
-                "folderid": "",
-                "fileid": "free-mixed.txt"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-mixed.txt"
             },
             "test:clash": {
-                "folderid": "",
-                "fileid": "test-clash.yaml"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "test-clash.yaml"
             },
             "test:v2ray": {
-                "folderid": "",
-                "fileid": "test-v2ray.txt"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "test-v2ray.txt"
             },
             "crawled:subs": {
-                "folderid": "",
-                "fileid": "crawled-subs.txt"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "crawled-subs.txt"
             },
             "crawled:proxies": {
-                "folderid": "",
-                "fileid": "crawled-proxies.txt"
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "crawled-proxies.txt"
             }
         }
     }
