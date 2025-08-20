@@ -789,8 +789,7 @@ def crawl_github(limits: int = 3, push_to: list = [], spams: list = [], exclude:
     cookie = os.environ.get("GH_COOKIE", "").strip()
     token = os.environ.get("GH_TOKEN", "").strip()
 
-    cookie = os.environ.get("GH_COOKIE", "").strip()  
-    token = os.environ.get("GH_TOKEN", "").strip()  
+    
     print(f"Debug: cookie={bool(cookie)}, token={bool(token)}") 
     
     if utils.isblank(cookie) and utils.isblank(token):
