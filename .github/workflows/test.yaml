@@ -1,9 +1,9 @@
 name: 验证GitHub Token并创建Gist
 
-  on:
+on:
     workflow_dispatch:  # 允许手动触发测试
 
-  jobs:
+jobs:
     test-token:
       runs-on: ubuntu-latest
 
