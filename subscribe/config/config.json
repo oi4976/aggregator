@@ -85,7 +85,7 @@
             }
         },
         "github": {
-            "enable": true,
+            "enable": false,
             "pages": 3,
             "push_to": ["free"],
             "exclude": "过期|失效|广告",
@@ -129,38 +129,47 @@
         "token": "${PUSH_TOKEN}",
         "items": {
             "free:clash": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "free-clash.yaml"
             },
             "free:v2ray": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "free-v2ray.txt"
             },
             "free:singbox": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "free-singbox.json"
             },
             "free:ss": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "free-ss.txt"
             },
             "free:mixed": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "free-mixed.txt"
             },
             "test:clash": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "test-clash.yaml"
             },
             "test:v2ray": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "test-v2ray.txt"
             },
             "crawled:subs": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "crawled-subs.txt"
             },
             "crawled:proxies": {
+                "username": "oi4976",
                 "gistid": "ba2057fb64e8d1ac97f687910810d551",
                 "filename": "crawled-proxies.txt"
             }
