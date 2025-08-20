@@ -93,7 +93,7 @@
         },
         "telegram": {
             "enable": true,
-            "pages": 5,
+            "pages": 15,
             "exclude": "垃圾|收费|广告",
             "users": {
                 "channel": {
@@ -105,9 +105,32 @@
                 }
             }
         },
+        "google": {
+            "enable": true,
+            "exclude": "百度|搜狗|广告",
+            "notinurl": ["baidu.com", "sogou.com"],
+            "push_to": ["MyProxies"]
+        },
+        "twitter": {
+            "enable": true,
+             "users": {
+                "username": {
+                     "enable": true,
+                     "num": 100,
+                     "include": "节点|订阅链接|免费",
+                      "exclude": "广告|付费|抽奖",
+                      "config": {
+                          "rename": "🐦TW-{name}",
+                          "tag": "TWITTER",
+                          "rate": 2.5
+                     },
+                    "push_to": ["MyProxies"]
+                }
+            }
+        },
         "github": {
             "enable": true,
-            "pages": 3,
+            "pages": 10,
             "push_to": ["MyProxies"],
             "exclude": "过期|失效|广告|垃圾",
             "spams": ["test-repo", "ad-repo", "spam-repo"]
