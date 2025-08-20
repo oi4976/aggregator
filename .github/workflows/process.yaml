@@ -30,6 +30,9 @@ env:
   # include spwcial protocols, such vless hysteria2 and hysteria
   ENABLE_SPECIAL_PROTOCOLS: ${{ vars.ENABLE_SPECIAL_PROTOCOLS }}
 
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}  
+  GH_COOKIE: ${{ secrets.GH_COOKIE }}  
+
 jobs:
   process:
     runs-on: ubuntu-latest
