@@ -123,44 +123,45 @@
         }
     },
     "storage": {
-        "engine": "local",
-        "base": "",
-        "domain": "",
+        "engine": "gist",
+        "base": "oi4976/ba2057fb64e8d1ac97f687910810d551",
+        "domain": "gist.github.com",
+        "token": "${GITHUB_TOKEN}",
         "items": {
             "free:clash": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "free-clash.yaml"
             },
             "free:v2ray": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "free-v2ray.txt"
             },
             "free:singbox": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "free-singbox.json"
             },
             "free:ss": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "free-ss.txt"
             },
             "free:mixed": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "free-mixed.txt"
             },
             "test:clash": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "test-clash.yaml"
             },
             "test:v2ray": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "test-v2ray.txt"
             },
             "crawled:subs": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "crawled-subs.txt"
             },
             "crawled:proxies": {
-                "folderid": "output",
+                "folderid": "",
                 "fileid": "crawled-proxies.txt"
             }
         }
