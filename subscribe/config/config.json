@@ -12,7 +12,12 @@
                 "https://raw.githubusercontent.com/mfuu/v2ray/master/v2ray",
                 "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml",
                 "https://raw.githubusercontent.com/pojiezhiyuan/jdvmess/main/jd",
-                "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.yml"
+                "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.yml",
+                "https://raw.githubusercontent.com/soroushchehresa/awesome-tracker-list/master/README.md",
+                "https://raw.githubusercontent.com/roflmuffin/ProxyList/master/proxies.txt",
+                "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+                "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list.txt",
+                "https://raw.githubusercontent.com/fate0/proxylist/master/proxy.list"
             ],
             "domain": "free-proxies",
             "rename": "🆓{name}",
@@ -55,6 +60,22 @@
             "rename": "🧪{name}",
             "push_to": ["MyProxies"],
             "count": 10
+        },
+        {
+            "name": "全球代理节点",
+            "enable": true,
+            "liveness": true,
+            "sub": [
+                "https://proxylist.geonode.com/api/proxy-list?limit=500&page=1&sort_by=lastChecked&sort_type=desc",
+                "https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/https/data.txt",
+                "https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/proxy.txt"
+            ],
+            "domain": "global-proxies",
+            "rename": "🌍{name}",
+            "include": "US|UK|JP|SG|KR|DE|FR|CA|AU",
+            "exclude": "CN|中国",
+            "push_to": ["MyProxies"],
+            "count": 20
         }
     ],
     "crawl": {
@@ -85,10 +106,10 @@
             }
         },
         "github": {
-            "enable": false,
+            "enable": true,
             "pages": 3,
             "push_to": ["MyProxies"],
-            "exclude": "过期|失效|广告",
+            "exclude": "过期|失效|广告|垃圾",
             "spams": ["test-repo", "ad-repo", "spam-repo"]
         }
     },
