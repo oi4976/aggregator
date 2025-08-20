@@ -5,18 +5,42 @@
             "enable": true,
             "liveness": true,
             "sub": [
-                "https://abc.com/clash.yaml",
-                "https://xxx.com/api/v1/client/subscribe?token=xxx",
-                "https://example.net/free/sub"
+                "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Proxies.ini",
+                "https://raw.githubusercontent.com/maicss-max/Clash-Rules/main/Long/Proxies.ini",
+                "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub",
+                "https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/clash",
+                "https://raw.githubusercontent.com/mfuu/v2ray/master/v2ray",
+                "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml",
+                "https://raw.githubusercontent.com/pojiezhiyuan/jdvmess/main/jd",
+                "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.yml"
             ],
             "domain": "free-proxies",
             "rename": "🆓{name}",
             "include": "免费|试用|节点",
-            "exclude": "付费|VIP|过期",
+            "exclude": "付费|VIP|过期|套餐",
             "push_to": ["free"],
             "ignorede": false,
             "rate": 1.0,
-            "count": 20,
+            "count": 50,
+            "secure": false
+        },
+        {
+            "name": "高速节点",
+            "enable": true,
+            "liveness": true,
+            "sub": [
+                "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Proxy.ini",
+                "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.ini",
+                "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.ini"
+            ],
+            "domain": "premium-proxies",
+            "rename": "⚡{name}",
+            "include": "专线|高速|游戏",
+            "exclude": "免费|测试",
+            "push_to": ["free"],
+            "ignorede": false,
+            "rate": 1.0,
+            "count": 30,
             "secure": false
         },
         {
@@ -24,18 +48,19 @@
             "enable": true,
             "liveness": true,
             "sub": [
-                "https://test.com/subscribe"
+                "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Proxies.ini",
+                "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
             ],
             "domain": "test-proxies",
             "rename": "🧪{name}",
             "push_to": ["test"],
-            "count": 5
+            "count": 10
         }
     ],
     "crawl": {
         "enable": true,
-        "exclude": "付费|广告|无效",
-        "threshold": 30,
+        "exclude": "付费|广告|无效|垃圾",
+        "threshold": 50,
         "singlelink": true,
         "persist": {
             "subs": "crawled:subs",
@@ -43,15 +68,15 @@
         },
         "config": {
             "rename": "📥采集-{name}",
-            "include": "节点|订阅|免费"
+            "include": "节点|订阅|免费|代理"
         },
         "telegram": {
             "enable": true,
-            "pages": 3,
-            "exclude": "垃圾|收费",
+            "pages": 5,
+            "exclude": "垃圾|收费|广告",
             "users": {
                 "channel": {
-                    "include": "vpn|节点|免费",
+                    "include": "vpn|节点|免费|代理",
                     "config": {
                         "rename": "📢TG-{name}"
                     },
@@ -61,10 +86,10 @@
         },
         "github": {
             "enable": true,
-            "pages": 2,
+            "pages": 3,
             "push_to": ["free"],
-            "exclude": "过期|失效",
-            "spams": ["test-repo", "ad-repo"]
+            "exclude": "过期|失效|广告",
+            "spams": ["test-repo", "ad-repo", "spam-repo"]
         }
     },
     "groups": {
@@ -75,11 +100,13 @@
                 "clash": "free:clash",
                 "v2ray": "free:v2ray",
                 "singbox": "free:singbox",
-                "ss": "free:ss"
+                "ss": "free:ss",
+                "mixed": "free:mixed"
             },
             "regularize": {
                 "enable": true,
                 "locate": true,
+                "residential": true,
                 "bits": 2
             }
         },
@@ -87,7 +114,8 @@
             "emoji": false,
             "list": true,
             "targets": {
-                "clash": "test:clash"
+                "clash": "test:clash",
+                "v2ray": "test:v2ray"
             },
             "regularize": {
                 "enable": false
@@ -95,37 +123,45 @@
         }
     },
     "storage": {
-        "engine": "gist",
-        "base": "https://api.github.com",
-        "domain": "https://gist.github.com",
+        "engine": "local",
+        "base": "",
+        "domain": "",
         "items": {
             "free:clash": {
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-clash.yaml"
+                "folderid": "output",
+                "fileid": "free-clash.yaml"
             },
             "free:v2ray": {
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-v2ray.txt"
+                "folderid": "output",
+                "fileid": "free-v2ray.txt"
             },
             "free:singbox": {
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-singbox.json"
+                "folderid": "output",
+                "fileid": "free-singbox.json"
             },
             "free:ss": {
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "free-ss.txt"
+                "folderid": "output",
+                "fileid": "free-ss.txt"
+            },
+            "free:mixed": {
+                "folderid": "output",
+                "fileid": "free-mixed.txt"
             },
             "test:clash": {
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "test-clash.yaml"
+                "folderid": "output",
+                "fileid": "test-clash.yaml"
+            },
+            "test:v2ray": {
+                "folderid": "output",
+                "fileid": "test-v2ray.txt"
             },
             "crawled:subs": {
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "crawled-subs.txt"
+                "folderid": "output",
+                "fileid": "crawled-subs.txt"
             },
             "crawled:proxies": {
-                "gistid": "ba2057fb64e8d1ac97f687910810d551",
-                "filename": "crawled-proxies.txt"
+                "folderid": "output",
+                "fileid": "crawled-proxies.txt"
             }
         }
     }
