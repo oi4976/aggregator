@@ -1,15 +1,46 @@
 name: 验证GitHub Token
-    run: |
-      echo "正在验证GitHub Token..."
-      response=$(curl -s -o /dev/null -w "%{http_code}" \
-        -H "Authorization: Bearer ${{ secrets.PUSH_TOKEN }}" \
-        -H "Accept: application/vnd.github+json" \
-        -H "X-GitHub-Api-Version: 2022-11-28" \
-        "https://api.github.com/gists/${{ secrets.GIST_ID }}")
 
-      if [ "$response" -eq 200 ]; then
-        echo "✅ Token验证成功"
-      else
-        echo "❌ Token验证失败，HTTP状态码: $response"
-        exit 1
-      fi
+on:
+    workflow_dispatch:  # 允许手动触发测试
+
+jobs:
+    test-token:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: 验证GitHub Token
+        run: |
+          echo "正在验证GitHub Token..."
+
+          # 验证Gist访问权限
+          response=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ secrets.PUSH_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/gists/${{ secrets.GIST_ID }}")
+
+          if [ "$response" -ne 200 ]; then
+            echo "❌ Token验证失败，HTTP状态码: $response"
+            echo "请检查："
+            echo "1. PUSH_TOKEN 是否有效且未过期"
+            echo "2. GIST_ID 是否正确"
+            echo "3. Token 是否具有 gist 权限"
+            exit 1
+          fi
+
+          # 验证Gist内容
+          echo "✅ Token验证成功，正在验证Gist内容..."
+          gist_content=$(curl -s \
+            -H "Authorization: Bearer ${{ secrets.PUSH_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/gists/${{ secrets.GIST_ID }}")
+
+          # 检查Gist是否包含预期的文件
+          if echo "$gist_content" | grep -q '"filename"'; then
+            echo "✅ Gist内容验证成功"
+            echo "📋 Gist包含的文件："
+            echo "$gist_content" | grep -o '"filename":"[^"]*"' | sed 's/"filename":"\(.*\)"/  - \1/'
+          else
+            echo "⚠️  Gist中未找到文件，请确保Gist已正确创建"
+          fi
