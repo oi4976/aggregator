@@ -1,0 +1,139 @@
+{
+    "domains": [
+        {
+            "name": "免费节点合集",
+            "enable": true,
+            "liveness": true,
+            "sub": [
+                "https://abc.com/clash.yaml",
+                "https://xxx.com/api/v1/client/subscribe?token=xxx",
+                "https://example.net/free/sub"
+            ],
+            "domain": "free-proxies",
+            "rename": "🆓{name}",
+            "include": "免费|试用|节点",
+            "exclude": "付费|VIP|过期",
+            "push_to": ["free"],
+            "ignorede": false,
+            "rate": 1.0,
+            "count": 20,
+            "secure": false
+        },
+        {
+            "name": "测试专用节点",
+            "enable": true,
+            "liveness": true,
+            "sub": [
+                "https://test.com/subscribe"
+            ],
+            "domain": "test-proxies",
+            "rename": "🧪{name}",
+            "push_to": ["test"],
+            "count": 5
+        }
+    ],
+    "crawl": {
+        "enable": true,
+        "exclude": "付费|广告|无效",
+        "threshold": 30,
+        "singlelink": true,
+        "persist": {
+            "subs": "crawled:subs",
+            "proxies": "crawled:proxies"
+        },
+        "config": {
+            "rename": "📥采集-{name}",
+            "include": "节点|订阅|免费"
+        },
+        "telegram": {
+            "enable": true,
+            "pages": 3,
+            "exclude": "垃圾|收费",
+            "users": {
+                "channel": {
+                    "include": "vpn|节点|免费",
+                    "config": {
+                        "rename": "📢TG-{name}"
+                    },
+                    "push_to": ["free"]
+                }
+            }
+        },
+        "github": {
+            "enable": true,
+            "pages": 2,
+            "push_to": ["free"],
+            "exclude": "过期|失效",
+            "spams": ["test-repo", "ad-repo"]
+        }
+    },
+    "groups": {
+        "free": {
+            "emoji": true,
+            "list": false,
+            "targets": {
+                "clash": "free:clash",
+                "v2ray": "free:v2ray",
+                "singbox": "free:singbox",
+                "ss": "free:ss"
+            },
+            "regularize": {
+                "enable": true,
+                "locate": true,
+                "bits": 2
+            }
+        },
+        "test": {
+            "emoji": false,
+            "list": true,
+            "targets": {
+                "clash": "test:clash"
+            },
+            "regularize": {
+                "enable": false
+            }
+        }
+    },
+    "storage": {
+        "engine": "gist",
+        "base": "https://api.github.com",
+        "domain": "https://gist.github.com",
+        "items": {
+            "free:clash": {
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-clash.yaml",
+                "username": "oi4976"
+            },
+            "free:v2ray": {
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-v2ray.txt",
+                "username": "oi4976"
+            },
+            "free:singbox": {
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-singbox.json",
+                "username": "oi4976"
+            },
+            "free:ss": {
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "free-ss.txt",
+                "username": "oi4976"
+            },
+            "test:clash": {
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "test-clash.yaml",
+                "username": "oi4976"
+            },
+            "crawled:subs": {
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "crawled-subs.txt",
+                "username": "oi4976"
+            },
+            "crawled:proxies": {
+                "gistid": "ba2057fb64e8d1ac97f687910810d551",
+                "filename": "crawled-proxies.txt",
+                "username": "oi4976"
+            }
+        }
+    }
+}
