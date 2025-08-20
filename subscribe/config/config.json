@@ -126,7 +126,7 @@
         "engine": "gist",
         "base": "oi4976/ba2057fb64e8d1ac97f687910810d551",
         "domain": "gist.github.com",
-        "token": "${GITHUB_TOKEN}",
+        "token": "${PUSH_TOKEN}",
         "items": {
             "free:clash": {
                 "folderid": "",
