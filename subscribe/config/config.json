@@ -1,0 +1,160 @@
+{
+  "domains": [
+    {
+      "name": "示例订阅源",
+      "sub": ["https://example.com/subscribe"],
+      "domain": "example.com",
+      "enable": true,
+      "rename": "🚀{name}",
+      "include": "港|台|美",
+      "exclude": "过期|广告",
+      "push_to": ["clash-group"],
+      "ignorede": false,
+      "liveness": true,
+      "rate": 2.0,
+      "count": 5,
+      "coupon": "",
+      "secure": true,
+      "renew": {
+        "account": [
+          {
+            "email": "user@example.com",
+            "passwd": "your-password",
+            "ticket": {
+              "enable": true,
+              "autoreset": false,
+              "subject": "订阅续期提醒",
+              "message": "您的订阅即将到期，请及时续期",
+              "level": 1
+            }
+          }
+        ],
+        "plan_id": 1,
+        "method": 1,
+        "chatgpt": {
+          "enable": true,
+          "regex": "GPT|OpenAI",
+          "operate": "IN"
+        }
+      }
+    }
+  ],
+  "crawl": {
+    "enable": true,
+    "exclude": "无效|测试",
+    "threshold": 10,
+    "singlelink": true,
+    "persist": {
+      "subs": "crawled-subs",
+      "proxies": "crawled-proxies"
+    },
+    "config": {
+      "rename": "📥采集-{name}",
+      "include": "节点|订阅",
+      "exclude": "广告"
+    },
+    "telegram": {
+      "enable": true,
+      "pages": 3,
+      "exclude": "垃圾|付费",
+      "users": {
+        "channel": {
+          "include": "vpn|节点",
+          "exclude": "广告",
+          "config": {
+            "rename": "📢TG-{name}"
+          },
+          "push_to": ["singbox-group"]
+        }
+      }
+    },
+    "github": {
+      "enable": true,
+      "pages": 2,
+      "push_to": ["clash-group"],
+      "exclude": "过期|失效",
+      "spams": ["test-repo", "ad-repo"]
+    },
+    "pages": [
+      {
+        "enable": true,
+        "url": "https://example.net/proxies",
+        "include": "免费|可用",
+        "exclude": "收费",
+        "config": {
+          "rename": "🌐网页-{name}"
+        },
+        "push_to": ["v2ray-group"]
+      }
+    ]
+  },
+  "groups": {
+    "clash-group": {
+      "emoji": true,
+      "list": false,
+      "targets": {
+        "clash": "clash-config"
+      },
+      "regularize": {
+        "enable": true,
+        "locate": true,
+        "bits": 2
+      }
+    },
+    "singbox-group": {
+      "emoji": true,
+      "list": false,
+      "targets": {
+        "singbox": "singbox-config"
+      },
+      "regularize": {
+        "enable": true,
+        "locate": true,
+        "bits": 2
+      }
+    },
+    "v2ray-group": {
+      "emoji": false,
+      "list": true,
+      "targets": {
+        "v2ray": "v2ray-config"
+      },
+      "regularize": {
+        "enable": false
+      }
+    }
+  },
+  "storage": {
+    "engine": "pastegg",
+    "base": "https://api.paste.gg",
+    "domain": "https://paste.gg",
+    "items": {
+      "clash-config": {
+        "username": "your-pastegg-username",
+        "folderid": "your-folder-id",
+        "fileid": "your-clash-file-id"
+      },
+      "singbox-config": {
+        "username": "your-pastegg-username",
+        "folderid": "your-folder-id",
+        "fileid": "your-singbox-file-id"
+      },
+      "v2ray-config": {
+        "username": "your-pastegg-username",
+        "folderid": "your-folder-id",
+        "fileid": "your-v2ray-file-id"
+      },
+      "crawled-subs": {
+        "username": "your-pastegg-username",
+        "folderid": "your-folder-id",
+        "fileid": "crawled-subs-file-id"
+      }
+    }
+  },
+  "update": {
+    "enable": true,
+    "username": "your-pastegg-username",
+    "folderid": "update-folder-id",
+    "fileid": "update-file-id"
+  }
+}
